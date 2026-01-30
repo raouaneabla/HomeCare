@@ -140,14 +140,18 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # ------------------------
-# CORS (React dev)
-# ------------------------
+# CORS (React dev + prod)
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "http://localhost:3000",                # pour le dev local
+    "https://homecare-2i7x.onrender.com",  # ton frontend déployé
 ]
-CORS_ALLOW_CREDENTIALS = False
+
+CORS_ALLOW_CREDENTIALS = True  # ⚠️ mettre True si tu envoies des cookies ou tokens
+
+# CSRF Trusted Origins
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
+    "https://homecare-2i7x.onrender.com",
 ]
 
 # ------------------------
