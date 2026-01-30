@@ -1,0 +1,203 @@
+/* Conteneur principal du login */
+.login-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #2196F3 0%, #4CAF50 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.login-container h2 {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteneur du formulaire */
+.login-container form {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(33, 150, 243, 0.3);
+  width: 100%;
+  max-width: 400px;
+  animation: slideIn 0.4s ease-out;
+}
+
+/* Animation d'entrée */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Titre optionnel */
+.login-container form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* Styles des inputs */
+.login-container form input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  outline: none;
+  background: white;
+  color: #333;
+}
+
+.login-container form input:focus {
+  border-color: #2196F3;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+  background: white;
+}
+
+.login-container form input::placeholder {
+  color: #999;
+}
+
+/* Style du bouton */
+.login-container form button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #2196F3 0%, #4CAF50 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.login-container form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+}
+
+.login-container form button:active {
+  transform: translateY(0);
+}
+
+/* Responsive pour tablettes */
+@media screen and (max-width: 768px) {
+  .login-container form {
+    padding: 35px 30px;
+    max-width: 360px;
+  }
+  
+  .login-container form h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  
+  .login-container form input {
+    padding: 12px 14px;
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+  
+  .login-container form button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* Responsive pour mobiles */
+@media screen and (max-width: 480px) {
+  .login-container {
+    padding: 15px;
+  }
+  
+  .login-container form {
+    padding: 30px 20px;
+    border-radius: 10px;
+  }
+  
+  .login-container form h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .login-container form input {
+    padding: 12px;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  
+  .login-container form button {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+/* Très petits écrans */
+@media screen and (max-width: 360px) {
+  .login-container form {
+    padding: 25px 15px;
+  }
+  
+  .login-container form input {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .login-container form button {
+    padding: 11px;
+    font-size: 14px;
+  }
+}
+
+/* Support pour les écrans larges */
+@media screen and (min-width: 1200px) {
+  .login-container form {
+    max-width: 450px;
+    padding: 50px;
+  }
+}
+
+/* Mode sombre - Forcer le blanc partout */
+@media (prefers-color-scheme: dark) {
+  .login-container form {
+    background: white;
+    color: #333;
+  }
+  
+  .login-container form h2 {
+    color: #333;
+  }
+  
+  .login-container form input {
+    background: white;
+    border-color: #e0e0e0;
+    color: #333;
+  }
+  
+  .login-container form input::placeholder {
+    color: #999;
+  }
+  
+  .login-container form input:focus {
+    border-color: #2196F3;
+    background: white;
+  }
+}

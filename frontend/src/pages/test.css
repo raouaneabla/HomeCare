@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1A8F3A 0%, #1A73E8 100%);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.register-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #1A73E8;
+}
+
+button {
+  width: 100%;
+  padding: 0.875rem;
+  background: linear-gradient(135deg, #1A8F3A 0%, #1A73E8 100%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Responsive pour tablettes */
+@media (max-width: 768px) {
+  .register-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .register-container h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Responsive pour mobiles */
+@media (max-width: 480px) {
+  .register-container {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+
+  .register-container h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  input,
+  select,
+  button {
+    padding: 0.625rem;
+    font-size: 0.9rem;
+  }
+
+  form {
+    gap: 0.75rem;
+  }
+}

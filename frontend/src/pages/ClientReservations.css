@@ -1,0 +1,150 @@
+/* ClientReservations.css */
+
+.client-reservations {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2196F3 0%, #4CAF50 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.client-reservations h2 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.client-reservations > p {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+.reservation-box {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.reservation-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.reservation-box p {
+  margin: 10px 0;
+  color: #333;
+  font-size: 16px;
+  line-break: anywhere;
+}
+
+.reservation-box strong {
+  color: #2196F3;
+}
+
+.reservation-box button {
+  background: linear-gradient(135deg, #2196F3 0%, #4CAF50 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+.reservation-box button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.reservation-box button:active {
+  transform: scale(0.98);
+}
+
+.back-btn {
+  background: white;
+  color: #2196F3;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+.back-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive pour tablettes */
+@media (max-width: 768px) {
+  .client-reservations {
+    padding: 15px;
+  }
+
+  .client-reservations h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .reservation-box {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .reservation-box p {
+    font-size: 15px;
+  }
+
+  .reservation-box button,
+  .back-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+/* Responsive pour mobiles */
+@media (max-width: 480px) {
+  .client-reservations {
+    padding: 10px;
+  }
+
+  .client-reservations h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .reservation-box {
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .reservation-box p {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+
+  .reservation-box button,
+  .back-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
