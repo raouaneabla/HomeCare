@@ -23,7 +23,7 @@ SECRET_KEY = os.environ.get(
 # ------------------------
 # DEBUG
 # ------------------------
-DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
+DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"  # ⚠️ False en prod
 
 # ------------------------
 # ALLOWED HOSTS
@@ -75,7 +75,7 @@ ROOT_URLCONF = 'homecare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'frontend' / 'build'],  # <-- Build React
+        'DIRS': [BASE_DIR / 'frontend' / 'build'],  # <-- React build complet
         'APP_DIRS': False,  # ⚠️ important pour React index.html
         'OPTIONS': {
             'context_processors': [
@@ -121,9 +121,16 @@ USE_TZ = True
 # STATIC FILES (React + Django)
 # ------------------------
 STATIC_URL = '/static/'
+
+# Dossier source des statiques React
 STATICFILES_DIRS = [
-    BASE_DIR / 'frontend' / 'build' / 'static',  # ⚡ React build static files
+    BASE_DIR / 'frontend' / 'build' / 'static',
 ]
+
+# Dossier cible pour collectstatic (Render)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# WhiteNoise pour servir les fichiers statiques compressés en prod
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # ------------------------
