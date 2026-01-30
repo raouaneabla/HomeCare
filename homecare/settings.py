@@ -120,11 +120,11 @@ USE_TZ = True
 # ------------------------
 # STATIC FILES (React + Django)
 # ------------------------
-STATIC_URL = '/static/'
+STATIC_URL = '/'
 
 # Dossier source des statiques React
 STATICFILES_DIRS = [
-    BASE_DIR / 'frontend' / 'build' / 'static',
+    BASE_DIR / 'frontend' / 'build',
 ]
 
 # Dossier cible pour collectstatic (Render)
