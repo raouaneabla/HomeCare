@@ -9,11 +9,14 @@ urlpatterns = [
     path('api/', include('accounts.urls')),
 ]
 
-# ⚠️ Affichage des images en dev
+# ⚠️ Serve media en dev
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# ⚠️ Toutes les autres URL renvoient React
+# ⚡ Serve React build (index.html + images + static)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
+
+# Toutes les autres URL renvoient React
 urlpatterns += [
     re_path(r'^.*$', TemplateView.as_view(template_name="index.html")),
 ]

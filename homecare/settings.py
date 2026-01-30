@@ -23,15 +23,14 @@ SECRET_KEY = os.environ.get(
 # ------------------------
 # DEBUG
 # ------------------------
-DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"  # ⚠️ False en prod
+DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
 
 # ------------------------
 # ALLOWED HOSTS
 # ------------------------
 if DEBUG:
-    ALLOWED_HOSTS = ["*"]  # Dev local
+    ALLOWED_HOSTS = ["*"]
 else:
-    # ⚠️ Remplace "homecare-2i7x.onrender.com" par ton domaine Render
     ALLOWED_HOSTS = ["homecare-2i7x.onrender.com", "www.homecare-2i7x.onrender.com"]
 
 # ------------------------
@@ -121,10 +120,9 @@ USE_TZ = True
 # ------------------------
 # STATIC FILES (React + Django)
 # ------------------------
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_URL = '/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'frontend' / 'build' / 'static',  # <-- React static
+    BASE_DIR / 'frontend' / 'build',  # <-- React build complet
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
