@@ -7,6 +7,9 @@ from pathlib import Path
 from datetime import timedelta
 import os
 
+# ------------------------
+# PATHS
+# ------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ------------------------
@@ -17,16 +20,19 @@ SECRET_KEY = os.environ.get(
     "django-insecure-$zzeipxp=3l4qm#f@l#($ejbn93)wruvarcou1h3%e$=9rbl16"
 )
 
-DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
+# ------------------------
+# DEBUG
+# ------------------------
+DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"  # ⚠️ False en prod
 
 # ------------------------
 # ALLOWED HOSTS
 # ------------------------
 if DEBUG:
-    ALLOWED_HOSTS = ["*"]  # dev local
+    ALLOWED_HOSTS = ["*"]  # Dev local
 else:
-    # ⚠️ remplacer par ton domaine Render réel
-    ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".onrender.com"]
+    # ⚠️ Remplace "homecare-2i7x.onrender.com" par ton domaine Render
+    ALLOWED_HOSTS = ["homecare-2i7x.onrender.com", "www.homecare-2i7x.onrender.com"]
 
 # ------------------------
 # APPS
@@ -51,12 +57,12 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 # MIDDLEWARE
 # ------------------------
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  # ⚠️ toujours en haut
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # <-- pour servir les statiques
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ⚡ pour servir les statiques
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',  # nécessaire pour admin
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -70,8 +76,8 @@ ROOT_URLCONF = 'homecare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / 'frontend' / 'build'],  # <-- Build React
+        'APP_DIRS': False,  # ⚠️ important pour React index.html
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
@@ -113,10 +119,13 @@ USE_I18N = True
 USE_TZ = True
 
 # ------------------------
-# STATIC FILES
+# STATIC FILES (React + Django)
 # ------------------------
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    BASE_DIR / 'frontend' / 'build' / 'static',  # <-- React static
+]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # ------------------------
@@ -126,7 +135,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # ------------------------
-# CORS (React)
+# CORS (React dev)
 # ------------------------
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
@@ -160,7 +169,7 @@ SIMPLE_JWT = {
 }
 
 # ------------------------
-# EMAIL (pour dev / tests)
+# EMAIL (dev/tests)
 # ------------------------
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
