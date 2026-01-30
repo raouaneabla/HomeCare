@@ -120,9 +120,9 @@ USE_TZ = True
 # ------------------------
 # STATIC FILES (React + Django)
 # ------------------------
-STATIC_URL = '/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'frontend' / 'build',  # <-- React build complet
+    BASE_DIR / 'frontend' / 'build' / 'static',  # ⚡ React build static files
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
