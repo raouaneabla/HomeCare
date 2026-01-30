@@ -76,7 +76,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR / 'frontend' / 'build'],  # <-- React build complet
-        'APP_DIRS': False,  # ⚠️ important pour React index.html
+        'APP_DIRS': True,  # ⚠️ mettre True pour que Django puisse charger les templates correctement
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
@@ -120,11 +120,11 @@ USE_TZ = True
 # ------------------------
 # STATIC FILES (React + Django)
 # ------------------------
-STATIC_URL = '/'
+STATIC_URL = '/static/'
 
 # Dossier source des statiques React
 STATICFILES_DIRS = [
-    BASE_DIR / 'frontend' / 'build',
+    BASE_DIR / 'frontend' / 'build' / 'static',
 ]
 
 # Dossier cible pour collectstatic (Render)
